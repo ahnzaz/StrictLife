@@ -1,9 +1,11 @@
-package com.devworm.android.strictlife;
+package com.devworm.android.strictlife.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.devworm.android.strictlife.R;
 
 public class HomeActivity extends AppCompatActivity {
 
