@@ -4,6 +4,6 @@
     tools:context="com.devworm.android.strictlife.ui.finance.FinanceMainActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/menu_finance_main_edit_budget" android:title="@string/menu_finance_main_edit_budget"
+    <item android:id="@+id/menu_finance_main_edit_budget" android:title="편집"
         android:orderInCategory="120"/>
 </menu>

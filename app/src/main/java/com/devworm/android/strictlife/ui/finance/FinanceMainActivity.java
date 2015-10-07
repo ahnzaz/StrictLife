@@ -28,6 +28,12 @@ public class FinanceMainActivity extends AppCompatActivity {
         // Update ui.
     }
 
+    private void saveData(){
+        // Store data via Storage module on thead.
+
+        // Callback function
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
