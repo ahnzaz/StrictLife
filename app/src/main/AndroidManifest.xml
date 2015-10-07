@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.finance.FinanceMainActivity"
+            android:label="@string/title_activity_finance_main"
+            android:parentActivityName=".ui.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.devworm.android.strictlife.ui.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.schedule.WorkoutMainActivity"
+            android:label="@string/title_activity_workout_main"
+            android:parentActivityName=".ui.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.devworm.android.strictlife.ui.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

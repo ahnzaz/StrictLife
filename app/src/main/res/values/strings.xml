@@ -2,4 +2,12 @@
     <string name="app_name">StrictLife</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_finance_main">FinanceMainActivity</string>
+    <string name="ui_btn_finance_main_add">추가</string>
+    <string name="btn_home_meal">식사</string>
+    <string name="btn_home_schedule">일정</string>
+    <string name="btn_home_finance">재정</string>
+    <string name="btn_home_workout">운동</string>
+    <string name="title_activity_workout_main">WorkoutMainActivity</string>
+    <string name="btn_schedule_main_edit">변경</string>
 </resources>

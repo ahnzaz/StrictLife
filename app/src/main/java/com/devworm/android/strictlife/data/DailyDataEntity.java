@@ -5,5 +5,5 @@ package com.devworm.android.strictlife.data;
  * @since 1.0
  * @created 2015-10-03
  */
-public interface DataEntity {
+public interface DailyDataEntity {
 }

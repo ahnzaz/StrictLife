@@ -1,13 +1,13 @@
 package com.devworm.android.strictlife.data.workout;
 
-import com.devworm.android.strictlife.data.AbstractDailyData;
+import com.devworm.android.strictlife.data.AbstractUnitData;
 
 /**
  * Unit workout data. <br />
  * @since 1.0
  * @created 2015-10-03
  */
-public class WorkOutUnitData extends AbstractDailyData {
+public class WorkOutUnitData extends AbstractUnitData {
 
     /**
      * Name of workout. <br />

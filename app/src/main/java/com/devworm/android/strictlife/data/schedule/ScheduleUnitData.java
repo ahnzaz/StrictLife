@@ -1,6 +1,6 @@
 package com.devworm.android.strictlife.data.schedule;
 
-import com.devworm.android.strictlife.data.AbstractDailyData;
+import com.devworm.android.strictlife.data.AbstractUnitData;
 
 /**
  * Daily schedule data. <br />
@@ -8,7 +8,7 @@ import com.devworm.android.strictlife.data.AbstractDailyData;
  * @created 2015-10-03
  * @since 1.0
  */
-public class ScheduleUnitData extends AbstractDailyData {
+public class ScheduleUnitData extends AbstractUnitData {
 
     /**
      * Schedule data.
