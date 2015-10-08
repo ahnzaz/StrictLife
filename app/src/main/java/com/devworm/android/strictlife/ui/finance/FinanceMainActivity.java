@@ -1,23 +1,30 @@
 package com.devworm.android.strictlife.ui.finance;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.devworm.android.strictlife.R;
 import com.devworm.android.strictlife.data.finance.FinanceDailyData;
+import com.devworm.android.strictlife.data.finance.FinanceUnitData;
 
 import java.util.List;
 
 public class FinanceMainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Child views.
-    private Button btnAddBreakDown;
-    private ListView lstgDataList;
+    private Button btnAddBreakDown = null;
+    private ListView lstgDataList = null;
+
+    private Dialog diagAddItem = null;
 
     // Data.
     private List<FinanceDailyData> financeDataList;
@@ -30,23 +37,47 @@ public class FinanceMainActivity extends AppCompatActivity implements View.OnCli
         loadData();
     }
 
-    private void connectView(){
+    private void connectView() {
         this.btnAddBreakDown = (Button) findViewById(R.id.btnFinanceMainAdd);
         this.lstgDataList = (ListView) findViewById(R.id.lstgFinanceMainList);
 
         btnAddBreakDown.setOnClickListener(this);
     }
 
-    private void loadData(){
+    private void loadData() {
         // Load finance data from storage module on thread.
 
         // Update ui.
     }
 
-    private void saveData(){
+    private void saveData() {
         // Store data via Storage module on thead.
 
         // Callback function
+    }
+
+    private void showAddItemDialog() {
+        if (this.diagAddItem == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(FinanceMainActivity.this.getLayoutInflater().inflate(R.layout.diag_finance_additem, null))
+                    .setPositiveButton(-1, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            FinanceUnitData unitData = new FinanceUnitData();
+                            unitData.setTag(((EditText)findViewById(R.id.etxFinanceDiagTag)).getEditableText().toString());
+                            unitData.setSum(Integer.parseInt(((EditText)findViewById(R.id.etxFinanceDiagTag)).getEditableText().toString()));
+                        }
+                    })
+                    .setNegativeButton(-1, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            // Do nothing.
+                        }
+                    });
+        }
+        this.diagAddItem.show();
     }
 
 
@@ -74,12 +105,12 @@ public class FinanceMainActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.btnFinanceMainAdd :{
+        switch (view.getId()) {
+            case R.id.btnFinanceMainAdd: {
                 // Show add item dialog.
                 break;
             }
-            default : {
+            default: {
 
             }
         }
