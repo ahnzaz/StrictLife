@@ -10,4 +10,7 @@
     <string name="btn_home_workout">운동</string>
     <string name="title_activity_workout_main">WorkoutMainActivity</string>
     <string name="btn_schedule_main_edit">변경</string>
+    <string name="label_finance_add_item_title">내역 추가</string>
+    <string name="label_finance_diag_tag">내역</string>
+    <string name="label_finance_diag_value">금액</string>
 </resources>

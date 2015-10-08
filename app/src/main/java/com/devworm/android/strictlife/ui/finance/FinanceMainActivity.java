@@ -4,14 +4,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 
 import com.devworm.android.strictlife.R;
 import com.devworm.android.strictlife.data.finance.FinanceDailyData;
 
 import java.util.List;
 
-public class FinanceMainActivity extends AppCompatActivity {
+public class FinanceMainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    // Child views.
+    private Button btnAddBreakDown;
+    private ListView lstgDataList;
+
+    // Data.
     private List<FinanceDailyData> financeDataList;
 
     @Override
@@ -20,6 +28,13 @@ public class FinanceMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finance_main);
 
         loadData();
+    }
+
+    private void connectView(){
+        this.btnAddBreakDown = (Button) findViewById(R.id.btnFinanceMainAdd);
+        this.lstgDataList = (ListView) findViewById(R.id.lstgFinanceMainList);
+
+        btnAddBreakDown.setOnClickListener(this);
     }
 
     private void loadData(){
@@ -55,5 +70,18 @@ public class FinanceMainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.btnFinanceMainAdd :{
+                // Show add item dialog.
+                break;
+            }
+            default : {
+
+            }
+        }
     }
 }
