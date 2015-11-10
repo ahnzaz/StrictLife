@@ -112,24 +112,29 @@ public class FinanceMainActivity extends AppCompatActivity implements View.OnCli
         // Callback function
     }
 
-    private void addFinanceItem(FinanceUnitData unitData) {
+    private void addFinanceItem(FinanceUnitData unitData, boolean update) {
         // Determine today's data is inserted already or not.
         Calendar today = Calendar.getInstance();
 
-        FinanceDailyData lastDateData = this.financeDataList.get(0);
-        if (today.get(Calendar.YEAR) == lastDateData.getDate().get(Calendar.YEAR)
+        FinanceDailyData lastDateData = this.financeDataList.size() > 0 ? this.financeDataList.get(0) : null;
+        if (lastDateData != null
+                && today.get(Calendar.YEAR) == lastDateData.getDate().get(Calendar.YEAR)
                 && today.get(Calendar.MONTH) == lastDateData.getDate().get(Calendar.MONTH)
                 && today.get(Calendar.DAY_OF_MONTH) == lastDateData.getDate().get(Calendar.DAY_OF_MONTH)) {
+
             //Last day is today.
             lastDateData.getDataList().add(unitData);
         } else {
             FinanceDailyData todayData = new FinanceDailyData();
             todayData.setDate(today);
             todayData.getDataList().add(unitData);
+            financeDataList.add(todayData);
         }
 
         // Refresh UI.
-        updateFinanceList();
+        if(update){
+            updateFinanceList();
+        }
     }
 
     private void showAddItemDialog() {
@@ -153,14 +158,14 @@ public class FinanceMainActivity extends AppCompatActivity implements View.OnCli
                             // Validation
 
                             int typeValue = ((Spinner) diagAddItem.findViewById(R.id.spnFinanceDiagType)).getSelectedItemPosition();
-                            if (typeValue <= 0) {
+                            if (typeValue < 0) {
                                 Toast.makeText(FinanceMainActivity.this, "유형을 선택해 주세요.", Toast.LENGTH_SHORT).show();
                                 diagAddItem.findViewById(R.id.spnFinanceDiagType).requestFocus();
                                 return;
                             }
 
                             int wayValue = ((Spinner) diagAddItem.findViewById(R.id.spnFinanceDiagWay)).getSelectedItemPosition();
-                            if (wayValue <= 0) {
+                            if (wayValue < 0) {
                                 Toast.makeText(FinanceMainActivity.this, "결제방식을 선택해 주세요.", Toast.LENGTH_SHORT).show();
                                 diagAddItem.findViewById(R.id.spnFinanceDiagWay).requestFocus();
                                 return;
@@ -189,7 +194,7 @@ public class FinanceMainActivity extends AppCompatActivity implements View.OnCli
                             diagAddItem.dismiss();
 
                             // Update data list
-                            addFinanceItem(unitData);
+                            addFinanceItem(unitData, true);
                         }
                     });
                 }

@@ -81,8 +81,10 @@
                 android:weightSum="100">
 
                 <EditText
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
                     android:id="@+id/etxFinanceDiagValue"
                     android:hint="@string/label_finance_diag_value" />
             </LinearLayout>

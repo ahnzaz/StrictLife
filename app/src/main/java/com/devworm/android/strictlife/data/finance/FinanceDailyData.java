@@ -2,6 +2,7 @@ package com.devworm.android.strictlife.data.finance;
 
 import com.devworm.android.strictlife.data.AbstractDailyData;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -14,6 +15,10 @@ import java.util.List;
 public class FinanceDailyData extends AbstractDailyData {
     private Calendar date;
     private List<FinanceUnitData> dataList;
+
+    public FinanceDailyData() {
+        this.dataList = new ArrayList<>();
+    }
 
     public List<FinanceUnitData> getDataList() {
         return dataList;
