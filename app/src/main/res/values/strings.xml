@@ -14,4 +14,9 @@
     <string name="label_finance_diag_tag">내역</string>
     <string name="label_finance_diag_value">금액</string>
     <string name="label_finance_list_date">날짜</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_finance_setting_addtype">항목 추가</string>
+    <string name="label_common_btnmodify">수정</string>
 </resources>

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class FinanceMainActivityFragment extends Fragment implements View.OnClickListener {
+public class FinanceItemListFragment extends Fragment implements View.OnClickListener {
 
     // Child views.
     private Button btnAddBreakDown = null;
@@ -41,7 +41,12 @@ public class FinanceMainActivityFragment extends Fragment implements View.OnClic
 //    private FinanceContext financeContext = null;
     private List<FinanceDailyData> financeDataList;
 
-    public FinanceMainActivityFragment() {
+    public FinanceItemListFragment() {
+    }
+
+    public static FinanceItemListFragment newInstance(){
+        FinanceItemListFragment intance = new FinanceItemListFragment();
+        return intance;
     }
 
     @Override
@@ -186,14 +191,14 @@ public class FinanceMainActivityFragment extends Fragment implements View.OnClic
                                 return;
                             }
 
-                            EditText etxTag = (EditText) FinanceMainActivityFragment.this.diagAddItem.findViewById(R.id.etxFinanceDiagTag);
+                            EditText etxTag = (EditText) FinanceItemListFragment.this.diagAddItem.findViewById(R.id.etxFinanceDiagTag);
                             if (etxTag.getEditableText() == null || "".equals(etxTag.getEditableText().toString())) {
                                 Toast.makeText(getContext(), "내역을 입력해 주세요.", Toast.LENGTH_SHORT).show();
                                 diagAddItem.findViewById(R.id.etxFinanceDiagTag).requestFocus();
                                 return;
                             }
 
-                            EditText etxValue = (EditText) FinanceMainActivityFragment.this.diagAddItem.findViewById(R.id.etxFinanceDiagValue);
+                            EditText etxValue = (EditText) FinanceItemListFragment.this.diagAddItem.findViewById(R.id.etxFinanceDiagValue);
                             if (etxValue.getEditableText() == null || "".equals(etxValue.getEditableText().toString())) {
                                 Toast.makeText(getContext(), "금액 입력해 주세요.", Toast.LENGTH_SHORT).show();
                                 diagAddItem.findViewById(R.id.etxFinanceDiagValue).requestFocus();

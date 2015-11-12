@@ -3,6 +3,10 @@ package com.devworm.android.strictlife.ui.finance;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -31,10 +35,39 @@ import java.util.List;
 
 public class FinanceMainActivity extends AppCompatActivity{
 
+    private ViewPager pager = null;
+
+    // Adapter
+    private PagerAdapter pagerAdapter = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance_main);
+        
+        connectView();
+        initView();
+    }
+
+    private void initView() {
+        this.pagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                switch(position){
+
+                }
+                return null;
+            }
+
+            @Override
+            public int getCount() {
+                return 3;
+            }
+        };
+    }
+
+    private void connectView() {
+        pager = (ViewPager) findViewById(R.id.vpgFinanceMain);
     }
 
     @Override
