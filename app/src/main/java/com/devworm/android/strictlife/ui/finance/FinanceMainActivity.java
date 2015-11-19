@@ -2,6 +2,7 @@ package com.devworm.android.strictlife.ui.finance;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -33,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class FinanceMainActivity extends AppCompatActivity{
+public class FinanceMainActivity extends AppCompatActivity {
 
     private ViewPager pager = null;
 
@@ -51,19 +52,37 @@ public class FinanceMainActivity extends AppCompatActivity{
 
     private void initView() {
         this.pagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
+
+
+            private static final int FINANCE_FRAGMENT_COUNT     = 3;
+            private static final int FINANCE_FRAGMENT_ITEM      = 0;
+            private static final int FINANCE_FRAGMENT_STATICS   = 1;
+            private static final int FINANCE_FRAGMENT_TYPE      = 2;
+
             @Override
             public Fragment getItem(int position) {
                 switch(position){
+                    case FINANCE_FRAGMENT_ITEM :{
+                        return FinanceItemListFragment.newInstance();
+                    }
 
+                    case FINANCE_FRAGMENT_STATICS :{
+                        return FinanceStaticFragment.newInstance(null, null);
+                    }
+
+                    case FINANCE_FRAGMENT_TYPE:{
+                        return FinanceSettingFragment.newInstance();
+                    }
                 }
                 return null;
             }
 
             @Override
             public int getCount() {
-                return 3;
+                return FINANCE_FRAGMENT_COUNT;
             }
         };
+        this.pager.setAdapter(pagerAdapter);
     }
 
     private void connectView() {
@@ -91,6 +110,4 @@ public class FinanceMainActivity extends AppCompatActivity{
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
